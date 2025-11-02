@@ -142,7 +142,7 @@ npm run start
 
 ## 📞 Contato da Clínica
 
-**Olhares Oftalmologia**
+**Clínica Olhares Oftalmologia**
 - 📍 Rua Itapecerica 403, Centro - Divinópolis/MG
 - 📮 CEP: 35500-018
 - ☎️ (37) 3112-0449
