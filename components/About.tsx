@@ -72,7 +72,7 @@ export default function About() {
 
         {/* Infraestrutura */}
         {sections[3] && (
-          <div className="bg-teal text-white rounded-lg p-8 md:p-12">
+          <div className="bg-gradient-to-br from-primary to-teal text-white rounded-lg p-8 md:p-12">
             <h2 className="text-3xl font-bold mb-8 text-center">
               {sections[3].title}
             </h2>
