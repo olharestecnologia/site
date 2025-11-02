@@ -6,10 +6,7 @@
     "dev": "npx next dev",
     "build": "npx next build",
     "start": "npx next start",
-    "lint": "npx next lint",
-    "fetch-logos": "node scripts/fetch-logos.js",
-    "fetch-logos-v2": "node scripts/fetch-logos-tavily.js",
-    "download-logos": "node scripts/download-logos.js"
+    "lint": "npx next lint"
   },
   "dependencies": {
     "@types/node": "^22.10.5",
