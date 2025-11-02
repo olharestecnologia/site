@@ -149,7 +149,6 @@ npm run start
 - 📱 WhatsApp: (37) 9-9120-0049
 
 ## 📄 Licença
-
 ISC
 
 ---
