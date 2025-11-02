@@ -1,0 +1,260 @@
+{
+    "site": {
+      "locale": "pt-BR",
+      "brand": "Olhares Oftalmologia",
+      "tagline": "Centro de referência em cuidados oftalmológicos no Centro-Oeste de Minas",
+      "summary": "Com vários anos de experiência: a Olhares oferece consultas, exames avançados e cirurgias oftalmológicas com equipe altamente qualificada e tecnologia de ponta.",
+      "contact": {
+        "address": {
+          "street": "Rua Itapecerica 403",
+          "neighborhood": "Centro",
+          "city": "Divinópolis",
+          "state": "MG",
+          "postal_code": "35500-018"
+        },
+        "phones": [
+          {"label": "Fixo", "number": "(37) 3112-0449"},
+          {"label": "WhatsApp", "number": "(37) 9-9120-0049"}
+        ],
+        "email": null,
+        "maps_url": null,
+        "opening_hours": null,
+        "parking": null,
+        "accessibility": null
+      },
+      "seo": {
+        "title": "Olhares Oftalmologia | Consultas, Exames e Cirurgias em Divinópolis - MG",
+        "description": "Clínica oftalmológica em Divinópolis com consultas, exames como OCT e campimetria, e cirurgias de catarata, glaucoma e retina. Atendimento humanizado e tecnologia de ponta.",
+        "keywords": ["oftalmologia", "clínica ocular", "Divinópolis", "catarata", "glaucoma", "retina", "OCT", "campimetria", "cirurgia oftalmológica"]
+      }
+    },
+    "pages": [
+      {
+        "slug": "/",
+        "title": "Início",
+        "hero": {
+          "headline": "Cuidado oftalmológico completo, humano e de excelência",
+          "subheadline": "Consultas, exames e cirurgias com tecnologia de ponta.",
+          "primary_cta": {"label": "Agendar consulta", "href": "/agendar"},
+          "secondary_cta": {"label": "Ver corpo clínico", "href": "/corpo-clinico"}
+        },
+        "sections": [
+          {
+            "type": "about-brief",
+            "title": "Sobre a Olhares",
+            "content": "A Olhares Oftalmologia se destaca como um centro de referência em cuidados oftalmológicos na região Centro-Oeste de Minas Gerais, comprometido em proporcionar serviços de primeira qualidade a todos os pacientes que atende.\n\nCom vários anos de experiência: nossa clínica é reconhecida por sua abordagem especializada e excelência no diagnóstico e tratamento de uma ampla gama de condições relacionadas à saúde ocular.\n\nContamos com uma equipe de oftalmologistas altamente capacitados e fazemos uso de tecnologia de última geração para atender às necessidades oftalmológicas de pacientes de todas as faixas etárias.\n\nDesde consultas de rotina até procedimentos cirúrgicos complexos, estamos comprometidos em proporcionar o mais alto padrão de cuidado oftalmológico."
+          },
+          {
+            "type": "services-cards",
+            "title": "O que fazemos",
+            "items": [
+              {"title": "Consultas", "text": "De rotina e especializadas com análise completa da saúde ocular."},
+              {"title": "Exames", "text": "Portfólio amplo: OCT, campimetria, retinografia, ecografia e mais."},
+              {"title": "Cirurgias", "text": "Catarata, glaucoma, retina, oculoplástica, pterígio e outros procedimentos."}
+            ],
+            "cta": {"label": "Conheça todos os serviços", "href": "/servicos"}
+          },
+          {
+            "type": "care-promise",
+            "title": "Atendimento humanizado",
+            "bullets": [
+              "Acolhimento integral e atenção individualizada",
+              "Comunicação clara e transparente",
+              "Compromisso com o bem-estar e a satisfação do paciente"
+            ]
+          },
+          {
+            "type": "infrastructure",
+            "title": "Infraestrutura e tecnologia",
+            "bullets": [
+              "Instalações amplas e acolhedoras",
+              "Equipamentos oftalmológicos de última geração",
+              "Protocolos rigorosos de higiene e segurança",
+              "Estrutura preparada para emergências"
+            ]
+          }
+        ]
+      },
+      {
+        "slug": "/sobre",
+        "title": "Sobre a Olhares",
+        "content": "Somos uma clínica com mais de seis anos de atuação, reconhecida pela excelência em consultas, exames e cirurgias oftalmológicas, atendendo pacientes de todas as idades com tecnologia de ponta e equipe altamente capacitada."
+      },
+      {
+        "slug": "/corpo-clinico",
+        "title": "Corpo Clínico",
+        "doctors": [
+          {
+            "name": "Dr. Antonio Augusto de Morais Pires",
+            "crm": "CRM/MG 43.953",
+            "rqe": "RQE 20987",
+            "areas": ["Consultas de Rotina", "Catarata", "Retina", "Glaucoma", "Urgências Oftalmológicas", "Aplicação de Quimioterápicos", "Córnea"],
+            "age_policy": {"min_age": 18, "all_ages": false}
+          },
+          {
+            "name": "Dra. Andreia Miriam Lopes Sansoni",
+            "crm": "CRM/MG 82.449",
+            "rqe": "RQE 51983",
+            "areas": ["Consultas de Rotina", "Plástica Ocular", "Estrabismo", "Vias Lacrimais", "Glaucoma Clínico", "Urgências Oftalmológicas"],
+            "age_policy": {"min_age": null, "all_ages": true}
+          },
+          {
+            "name": "Dr. Alvaro Ribeiro Vaz de Faria",
+            "crm": "CRM/MG 76.432",
+            "rqe": "RQE 55494",
+            "areas": ["Consultas de Rotina", "Catarata", "Glaucoma", "Urgências Oftalmológicas"],
+            "age_policy": {"min_age": 6, "all_ages": false}
+          },
+          {
+            "name": "Dr. Caio Godinho Caldeira",
+            "crm": "CRM/MG 89.323",
+            "rqe": "RQE 65.895",
+            "areas": ["Consultas de Rotina", "Córnea", "Catarata", "Ceratocone", "Urgências Oftalmológicas"],
+            "age_policy": {"min_age": 6, "all_ages": false}
+          },
+          {
+            "name": "Dr. Gustavo Gonçalves Rodrigues",
+            "crm": "CRM/MG 70.234",
+            "rqe": "RQE 51098",
+            "areas": ["Consultas de Rotina", "Catarata", "Glaucoma", "Urgências Oftalmológicas"],
+            "age_policy": {"min_age": 8, "all_ages": false}
+          },
+          {
+            "name": "Dra. Júlia Calixto Guimarães Giffoni",
+            "crm": "CRM/MG 76.311",
+            "rqe": "RQE 53.974",
+            "areas": ["Consultas de Rotina", "Glaucoma", "Catarata", "Blefaroplastia", "Urgências Oftalmológicas"],
+            "age_policy": {"min_age": 7, "all_ages": false}
+          },
+          {
+            "name": "Dra. Rafaela de Morais Miranda",
+            "crm": "CRM/MG 68.476",
+            "rqe": "RQE 44061",
+            "areas": ["Consultas de Rotina", "Plástica Ocular", "Glaucoma Clínico", "Urgências Oftalmológicas"],
+            "age_policy": {"min_age": null, "all_ages": true}
+          },
+          {
+            "name": "Dr. Raphael Coelho Santos",
+            "crm": "CRM/MG 60.247",
+            "rqe": "RQE 58816",
+            "areas": ["Consultas de Rotina", "Plástica Ocular"],
+            "age_policy": {"min_age": 12, "all_ages": false}
+          },
+          {
+            "name": "Dra. Silvia Nogueira Marx Gonzaga",
+            "crm": "CRM/MG 71.369",
+            "rqe": "RQE 48.992",
+            "areas": ["Consultas de Rotina", "Catarata", "Retina", "Cirurgia Refrativa", "Urgências Oftalmológicas"],
+            "age_policy": {"min_age": 12, "all_ages": false}
+          },
+          {
+            "name": "Dra. Thaís Godinho Caldeira",
+            "crm": "CRM/MG 76.082",
+            "rqe": "RQE 55.892",
+            "areas": ["Consultas de Rotina", "Retina", "Catarata", "Urgências Oftalmológicas"],
+            "age_policy": {"min_age": 6, "all_ages": false}
+          },
+          {
+            "name": "Dra. Bruna Cristina Leonel S. Barbosa",
+            "crm": "CRM/MG 55.846",
+            "rqe": "RQE 37.352",
+            "areas": ["Anestesiologia"],
+            "age_policy": {"min_age": null, "all_ages": true}
+          },
+          {
+            "name": "Dr. Samuel B. Francisco de Souza",
+            "crm": "CRM/MG 57.640",
+            "rqe": "RQE 38.452",
+            "areas": ["Anestesiologia"],
+            "age_policy": {"min_age": null, "all_ages": true}
+          }
+        ]
+      },
+      {
+        "slug": "/servicos",
+        "title": "Serviços",
+        "services": {
+          "consultas": {
+            "title": "Consultas oftalmológicas completas",
+            "description": "Exames de rotina e avaliações especializadas com equipamentos de última geração.",
+            "includes": ["Acuidade visual", "Refração", "Exame de fundo de olho", "Avaliação personalizada e orientação terapêutica"]
+          },
+          "exames": {
+            "title": "Exames diagnósticos especializados",
+            "description": "Portfólio completo para diagnóstico preciso e acompanhamento de condições oculares.",
+            "list": [
+              "Exame de Acuidade Visual",
+              "Exame de Refração",
+              "Tonometria",
+              "Exame de Fundo de Olho",
+              "Mapeamento de Retina",
+              "Biomicroscopia",
+              "Ceratoscopia computadorizada",
+              "Paquimetria",
+              "Campimetria Visual Computadorizada",
+              "Gonioscopia",
+              "Curva diária de pressão intra-ocular",
+              "Retinografia colorida",
+              "Tomografia de coerência óptica (OCT)",
+              "Angiofluoresceinografia com contraste",
+              "Angiografia sem contraste (OCT-A)",
+              "Ecografia-B (Ultrassonografia ocular)",
+              "Ecografia-A (Biometria ultrassônica e óptica)",
+              "Microscopia especular de córnea",
+              "Fotocoagulação a laser de retina",
+              "Iridotomia com YAG laser",
+              "Capsulotomia posterior com YAG laser (limpeza de LIO pós-catarata)",
+              "Teste de lente de contato (gelatinosa e rígida gás permeável)",
+              "Entre outros"
+            ]
+          },
+          "cirurgias": {
+            "title": "Cirurgias oftalmológicas",
+            "description": "Bloco cirúrgico próprio, equipe experiente e tecnologias de ponta.",
+            "list": [
+              "Tratamento cirúrgico de Catarata (remoção e implante de lente intraocular)",
+              "Tratamento cirúrgico de Glaucoma (medicamentoso, laser ou cirurgia)",
+              "Tratamento cirúrgico de Estrabismo",
+              "Oculoplástica e Cirurgia Estética Ocular (pálpebras caídas, bolsas, etc.)",
+              "Tratamento de doenças da retina (injeções intravítreas)",
+              "Cirurgia de Pterígio",
+              "Cirurgia de Calázio",
+              "Cirurgia de pequenos tumores oculares",
+              "Outros procedimentos"
+            ]
+          }
+        }
+      },
+      {
+        "slug": "/atendimento",
+        "title": "Atendimento humanizado",
+        "pillars": [
+          "Acolhimento integral",
+          "Atenção individualizada",
+          "Comunicação transparente",
+          "Compromisso com o bem-estar"
+        ]
+      },
+      {
+        "slug": "/infraestrutura",
+        "title": "Infraestrutura e equipamentos",
+        "highlights": [
+          "Instalações amplas e acolhedoras",
+          "Equipamentos modernos e tecnologia de ponta",
+          "Ambiente higienizado e seguro",
+          "Estrutura preparada para emergências"
+        ]
+      },
+      {
+        "slug": "/contato",
+        "title": "Contato",
+        "cta": {
+          "headline": "Vamos cuidar da sua visão?",
+          "subheadline": "Fale com nossa equipe para agendar sua consulta.",
+          "primary_cta": {"label": "Agendar agora", "href": "/agendar"},
+          "secondary_cta": {"label": "Como chegar", "href": "/contato#mapa"}
+        }
+      }
+    ]
+  }
+  
