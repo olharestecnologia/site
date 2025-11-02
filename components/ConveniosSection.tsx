@@ -5,33 +5,33 @@ import { useState } from 'react'
 
 export default function ConveniosSection() {
   const convenios = [
-    { name: 'AMAGIS', slug: 'amagis' },
-    { name: 'Bradesco', slug: 'bradesco-saude' },
-    { name: 'Cassi', slug: 'cassi' },
-    { name: 'Cemig Saúde', slug: 'cemig-saude' },
-    { name: 'IPSEMG', slug: 'ipsemg' },
-    { name: 'Libertas', slug: 'libertas' },
-    { name: 'Polícia Militar (IPSM)', slug: 'policia-militar-ipsm' },
-    { name: 'Postal Saúde', slug: 'postal-saude' },
-    { name: 'Saúde Caixa', slug: 'saude-caixa' },
-    { name: 'Sulamérica', slug: 'sulamerica' },
-    { name: 'Unimed', slug: 'unimed' },
-    { name: 'Vale', slug: 'vale-saude' },
+    { name: 'AMAGIS', slug: 'amagis', ext: 'png' },
+    { name: 'Bradesco', slug: 'bradesco-saude', ext: 'png' },
+    { name: 'Cassi', slug: 'cassi', ext: 'png' },
+    { name: 'Cemig Saúde', slug: 'cemig-saude', ext: 'png' },
+    { name: 'IPSEMG', slug: 'ipsemg', ext: 'jpg' },
+    { name: 'Libertas', slug: 'libertas', ext: 'jpg' },
+    { name: 'Polícia Militar (IPSM)', slug: 'policia-militar-ipsm', ext: 'jpg' },
+    { name: 'Postal Saúde', slug: 'postal-saude', ext: 'png' },
+    { name: 'Saúde Caixa', slug: 'saude-caixa', ext: 'png' },
+    { name: 'Sulamérica', slug: 'sulamerica', ext: 'png' },
+    { name: 'Unimed', slug: 'unimed', ext: 'png' },
+    { name: 'Vale', slug: 'vale-saude', ext: 'jpg' },
   ]
 
   const parceiros = [
-    { name: 'AFFAB', slug: 'affab' },
-    { name: 'Cartão de Todos', slug: 'cartao-de-todos' },
-    { name: 'CDL Divinópolis', slug: 'cdl-divinopolis' },
-    { name: 'Divicard', slug: 'divicard' },
-    { name: 'Divimédicos', slug: 'divimedicos' },
-    { name: 'Estrututura do Viver', slug: 'estrututura-do-viver' },
-    { name: 'Farmax', slug: 'farmax' },
-    { name: 'Medprev', slug: 'medprev' },
-    { name: 'NASS', slug: 'nass' },
-    { name: 'Poupa Medic', slug: 'poupa-medic' },
-    { name: 'SAAE', slug: 'saae' },
-    { name: 'SIMETRAL', slug: 'simetral' },
+    { name: 'AFFAB', slug: 'affab', ext: 'jpg' },
+    { name: 'Cartão de Todos', slug: 'cartao-de-todos', ext: 'jpg' },
+    { name: 'CDL Divinópolis', slug: 'cdl-divinopolis', ext: 'jpg' },
+    { name: 'Divicard', slug: 'divicard', ext: 'jpg' },
+    { name: 'Divimédicos', slug: 'divimedicos', ext: 'png' },
+    { name: 'Estrututura do Viver', slug: 'estrututura-do-viver', ext: 'png' },
+    { name: 'Farmax', slug: 'farmax', ext: 'png' },
+    { name: 'Medprev', slug: 'medprev', ext: 'png' },
+    { name: 'NASS', slug: 'nass', ext: 'jpg' },
+    { name: 'Poupa Medic', slug: 'poupa-medic', ext: 'jpg' },
+    { name: 'SAAE', slug: 'saae', ext: 'png' },
+    { name: 'SIMETRAL', slug: 'simetral', ext: 'jpg' },
   ]
 
   return (
@@ -80,20 +80,13 @@ export default function ConveniosSection() {
   )
 }
 
-function LogoCard({ item, type }: { item: { name: string; slug: string }; type: 'convenio' | 'parceiro' }) {
+function LogoCard({ item, type }: { item: { name: string; slug: string; ext: string }; type: 'convenio' | 'parceiro' }) {
   const [imageError, setImageError] = useState(false)
-  const [imageFormat, setImageFormat] = useState<'png' | 'jpg'>('png')
-  const imagePath = `/images/convenios/${item.slug}.${imageFormat}`
+  const imagePath = `/images/convenios/${item.slug}.${item.ext}`
   const borderColor = type === 'convenio' ? 'hover:border-primary' : 'hover:border-teal'
 
   const handleImageError = () => {
-    // If PNG failed and we haven't tried JPG yet, try JPG
-    if (imageFormat === 'png') {
-      setImageFormat('jpg')
-    } else {
-      // Both formats failed, show text fallback
-      setImageError(true)
-    }
+    setImageError(true)
   }
 
   return (
@@ -104,7 +97,6 @@ function LogoCard({ item, type }: { item: { name: string; slug: string }; type: 
         <>
           <div className="relative w-full h-20 flex items-center justify-center mb-3">
             <Image
-              key={imagePath}
               src={imagePath}
               alt={`Logo ${item.name}`}
               width={200}

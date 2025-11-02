@@ -15,7 +15,7 @@ export default function About() {
           </h2>
           <div className="text-xl text-gray-600 max-w-3xl mx-auto mb-4 space-y-4">
             {sections[0].content?.split('\n\n').map((paragraph: string, index: number) => (
-              <p key={index}>{paragraph}</p>
+              <p key={index} className="text-justify">{paragraph}</p>
             ))}
           </div>
           <p className="text-lg text-gray-500 max-w-3xl mx-auto italic">
