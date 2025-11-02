@@ -1,6 +1,6 @@
 'use client'
 
-import { Eye, Stethoscope, Scissors } from 'lucide-react'
+import { Eye, Stethoscope, Cross } from 'lucide-react'
 import siteData from '@/lib/content.json'
 
 export default function ServicesSection() {
@@ -9,7 +9,7 @@ export default function ServicesSection() {
   const serviceIcons = {
     consultas: <Stethoscope className="w-12 h-12" />,
     exames: <Eye className="w-12 h-12" />,
-    cirurgias: <Scissors className="w-12 h-12" />,
+    cirurgias: <Cross className="w-12 h-12" />,
   }
 
   if (!services) return null

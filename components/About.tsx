@@ -6,21 +6,23 @@ export default function About() {
   if (!sections.length || !sections[0]) return null
 
   return (
-    <section id="sobre" className="py-20 bg-white">
+    <section id="sobre" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         {/* Sobre a Olhares */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-6">
-            {sections[0].title}
-          </h2>
-          <div className="text-xl text-gray-600 max-w-3xl mx-auto mb-4 space-y-4">
-            {sections[0].content?.split('\n\n').map((paragraph: string, index: number) => (
-              <p key={index} className="text-justify">{paragraph}</p>
-            ))}
+        <div className="max-w-4xl mx-auto mb-16">
+          <div className="bg-white p-8 md:p-10 rounded-lg">
+            <h2 className="text-2xl font-bold text-primary mb-4 text-center md:text-left">
+              {sections[0].title}
+            </h2>
+            <div className="text-lg text-gray-700 leading-relaxed mb-4 space-y-4">
+              {sections[0].content?.split('\n\n').map((paragraph: string, index: number) => (
+                <p key={index} className="text-justify">{paragraph}</p>
+              ))}
+            </div>
+            <p className="text-lg text-gray-600 italic text-justify">
+              {siteData.site.tagline}
+            </p>
           </div>
-          <p className="text-lg text-gray-500 max-w-3xl mx-auto italic">
-            {siteData.site.tagline}
-          </p>
         </div>
 
         {/* O que fazemos */}

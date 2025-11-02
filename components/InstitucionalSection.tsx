@@ -16,7 +16,7 @@ export default function InstitucionalSection() {
           {/* Missão */}
           <div className="bg-white p-8 md:p-10 rounded-lg">
             <h3 className="text-2xl font-bold text-primary mb-4 text-center md:text-left">Missão</h3>
-            <p className="text-lg text-gray-700 leading-relaxed">
+            <p className="text-lg text-gray-700 leading-relaxed text-justify">
               Oferecer cuidados oftalmológicos de excelência, com foco no bem-estar visual dos nossos pacientes, 
               por meio de profissionais qualificados, tecnologia de ponta e um atendimento humanizado a toda 
               população do Centro-oeste de Minas Gerais.
@@ -26,7 +26,7 @@ export default function InstitucionalSection() {
           {/* Visão */}
           <div className="bg-white p-8 md:p-10 rounded-lg">
             <h3 className="text-2xl font-bold text-primary mb-4 text-center md:text-left">Visão</h3>
-            <p className="text-lg text-gray-700 leading-relaxed">
+            <p className="text-lg text-gray-700 leading-relaxed text-justify">
               Ser referência em saúde ocular, reconhecida pela qualidade dos serviços prestados e 
               compromisso com a satisfação dos pacientes.
             </p>
