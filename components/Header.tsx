@@ -10,11 +10,11 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const menuItems = [
-    { label: 'SOBRE', href: '#sobre' },
-    { label: 'CORPO CLÍNICO', href: '#corpo-clinico' },
-    { label: 'SERVIÇOS', href: '#servicos' },
-    { label: 'CONVÊNIOS', href: '#convenios' },
-    { label: 'CONTATO', href: '#contato' },
+    { label: 'Sobre', href: '#sobre' },
+    { label: 'Corpo Clínico', href: '#corpo-clinico' },
+    { label: 'Serviços', href: '#servicos' },
+    { label: 'Convênios', href: '#convenios' },
+    { label: 'Contato', href: '#contato' },
   ]
 
   return (
