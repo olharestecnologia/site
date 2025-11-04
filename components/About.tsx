@@ -27,7 +27,7 @@ export default function About() {
                 )
               })}
             </div>
-            <p className="text-lg text-gray-600 italic text-justify">
+            <p className="text-lg text-gray-900 font-bold text-justify">
               {siteData.site.tagline}
             </p>
           </div>

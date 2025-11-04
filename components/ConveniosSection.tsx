@@ -25,7 +25,7 @@ export default function ConveniosSection() {
     { name: 'CDL Divinópolis', slug: 'cdl-divinopolis', ext: 'jpg' },
     { name: 'Divicard', slug: 'divicard', ext: 'jpg' },
     { name: 'Divimédicos', slug: 'divimedicos', ext: 'png' },
-    { name: 'Estrututura do Viver', slug: 'estrututura-do-viver', ext: 'png' },
+    { name: 'Estrututura do Viver', slug: 'estrututura-do-viver', ext: 'jpeg' },
     { name: 'Farmax', slug: 'farmax', ext: 'png' },
     { name: 'Medprev', slug: 'medprev', ext: 'png' },
     { name: 'NASS', slug: 'nass', ext: 'jpg' },
