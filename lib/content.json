@@ -42,7 +42,7 @@
           {
             "type": "about-brief",
             "title": "Sobre a Olhares",
-            "content": "A Olhares Oftalmologia se destaca como um centro de referência em cuidados oftalmológicos na região Centro-Oeste de Minas Gerais, comprometido em proporcionar serviços de primeira qualidade a todos os pacientes que atende.\n\nCom vários anos de experiência: nossa clínica é reconhecida por sua abordagem especializada e excelência no diagnóstico e tratamento de uma ampla gama de condições relacionadas à saúde ocular.\n\nContamos com uma equipe de oftalmologistas altamente capacitados e fazemos uso de tecnologia de última geração para atender às necessidades oftalmológicas de pacientes de todas as faixas etárias.\n\nDesde consultas de rotina até procedimentos cirúrgicos complexos, estamos comprometidos em proporcionar o mais alto padrão de cuidado oftalmológico."
+            "content": "**Somos Centro de referência em cuidados oftalmológicos no Centro-Oeste de Minas**\n\nA Olhares Oftalmologia se destaca como um centro de referência em cuidados oftalmológicos na região Centro-Oeste de Minas Gerais, comprometido em proporcionar serviços de primeira qualidade a todos os pacientes que atende.\n\nCom vários anos de experiência, nossa clínica é reconhecida por sua abordagem especializada e excelência no diagnóstico e tratamento de uma ampla gama de condições relacionadas à saúde ocular.\n\nContamos com uma equipe de oftalmologistas altamente capacitados e fazemos uso de tecnologia de última geração para atender às necessidades oftalmológicas de pacientes de todas as faixas etárias.\n\nDesde consultas de rotina até procedimentos cirúrgicos complexos, estamos comprometidos em proporcionar o mais alto padrão de cuidado oftalmológico."
           },
           {
             "type": "services-cards",
@@ -88,7 +88,7 @@
             "name": "Dr. Antonio Augusto de Morais Pires",
             "crm": "CRM/MG 43.953",
             "rqe": "RQE 20987",
-            "areas": ["Consultas de Rotina", "Catarata", "Retina", "Glaucoma", "Urgências Oftalmológicas", "Aplicação de Quimioterápicos", "Córnea"],
+            "areas": ["Consultas de Rotina", "Catarata", "Retina", "Glaucoma", "Urgências Oftalmológicas", "Aplicação de Quimioterápicos"],
             "age_policy": {"min_age": 18, "all_ages": false}
           },
           {

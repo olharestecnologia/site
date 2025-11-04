@@ -15,9 +15,17 @@ export default function About() {
               {sections[0].title}
             </h2>
             <div className="text-lg text-gray-700 leading-relaxed mb-4 space-y-4">
-              {sections[0].content?.split('\n\n').map((paragraph: string, index: number) => (
-                <p key={index} className="text-justify">{paragraph}</p>
-              ))}
+              {sections[0].content?.split('\n\n').map((paragraph: string, index: number) => {
+                // Check if paragraph should be bold (wrapped in **)
+                const isBold = paragraph.startsWith('**') && paragraph.endsWith('**')
+                const text = isBold ? paragraph.slice(2, -2) : paragraph
+                
+                return (
+                  <p key={index} className={`text-justify ${isBold ? 'font-bold' : ''}`}>
+                    {text}
+                  </p>
+                )
+              })}
             </div>
             <p className="text-lg text-gray-600 italic text-justify">
               {siteData.site.tagline}

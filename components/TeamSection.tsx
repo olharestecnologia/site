@@ -16,6 +16,7 @@ export default function TeamSection() {
     'Dr. Raphael Coelho Santos': '/images/doctors/dr-raphael.jpg',
     'Dra. Silvia Nogueira Marx Gonzaga': '/images/doctors/dra-silvia.jpg',
     'Dra. Thaís Godinho Caldeira': '/images/doctors/dra-thais.jpg',
+    'Dra. Bruna Cristina Leonel S. Barbosa': '/images/doctors/br-bruna.png',
     'Dr. Samuel B. Francisco de Souza': '/images/doctors/dr-samuel.jpg',
   }
 
