@@ -88,7 +88,7 @@
             "name": "Dr. Antonio Augusto de Morais Pires",
             "crm": "CRM/MG 43.953",
             "rqe": "RQE 20987",
-            "areas": ["Consultas de Rotina", "Catarata", "Retina", "Glaucoma", "Urgências Oftalmológicas", "Aplicação de Quimioterápicos"],
+            "areas": ["Consultas de Rotina", "Catarata", "Retina", "Glaucoma", "Aplicação de Quimioterápicos"],
             "age_policy": {"min_age": 18, "all_ages": false}
           },
           {

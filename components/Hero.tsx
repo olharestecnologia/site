@@ -6,8 +6,7 @@ import siteData from '@/lib/content.json'
 
 const heroImages = [
   '/images/hero-1.jpg',
-  '/images/hero-4.jpg',
-  '/images/hero-5.jpg',
+  '/images/hero-2.jpg',
 ]
 
 export default function Hero() {
