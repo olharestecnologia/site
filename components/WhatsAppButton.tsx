@@ -5,7 +5,7 @@ import siteData from '@/lib/content.json'
 
 export default function WhatsAppButton() {
   const whatsappNumber = siteData.site.contact.phones[1].number.replace(/[^0-9]/g, '')
-  const whatsappUrl = `https://wa.me/55${whatsappNumber}?text=Olá! Gostaria de agendar uma consulta.`
+  const whatsappUrl = `https://wa.me/55${whatsappNumber}?text=Olá, vim do site da Olhares e gostaria de agendar uma consulta!`
 
   return (
     <a

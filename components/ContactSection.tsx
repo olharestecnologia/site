@@ -91,7 +91,7 @@ export default function ContactSection() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
-                  href={`https://wa.me/55${phones[1].number.replace(/[^0-9]/g, '')}?text=Olá! Gostaria de agendar uma consulta.`}
+                  href={`https://wa.me/55${phones[1].number.replace(/[^0-9]/g, '')}?text=Olá, vim do site da Olhares e gostaria de agendar uma consulta!`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-white text-primary px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors text-center"
