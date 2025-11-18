@@ -113,7 +113,7 @@ export default function Hero() {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
-            href="https://wa.me/5537991200049?text=Olá! Gostaria de agendar uma consulta."
+            href="https://wa.me/5537991200049?text=Olá, vim do site da Olhares e gostaria de agendar uma consulta!"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-primary hover:bg-teal text-white px-8 py-4 rounded-full font-semibold text-lg transition-colors inline-block"

@@ -85,7 +85,7 @@ export default function Header() {
               </Link>
             ))}
             <a
-              href="https://wa.me/5537991200049?text=Olá! Gostaria de agendar uma consulta."
+              href="https://wa.me/5537991200049?text=Olá, vim do site da Olhares e gostaria de agendar uma consulta!"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-primary text-white px-6 py-2 rounded-full hover:bg-teal transition-colors font-medium"
@@ -118,7 +118,7 @@ export default function Header() {
               </Link>
             ))}
             <a
-              href="https://wa.me/5537991200049?text=Olá! Gostaria de agendar uma consulta."
+              href="https://wa.me/5537991200049?text=Olá, vim do site da Olhares e gostaria de agendar uma consulta!"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-primary text-white px-6 py-3 rounded-full hover:bg-teal transition-colors font-medium text-center"
