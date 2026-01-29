@@ -27,7 +27,7 @@ export default function ContactSection() {
             <h3 className="text-2xl font-bold text-gray-900 mb-6">
               Informações de Contato
             </h3>
-            
+
             <div className="space-y-6">
               {/* Endereço */}
               <div className="flex items-start gap-4">
@@ -104,6 +104,32 @@ export default function ContactSection() {
                 >
                   Ligar Agora
                 </a>
+              </div>
+            </div>
+
+            {/* Dúvidas e Sugestões */}
+            <div className="mt-8 bg-gray-50 border border-gray-200 p-8 rounded-lg">
+              <div className="flex items-start gap-4">
+                <div className="bg-primary/10 p-3 rounded-lg">
+                  <Mail className="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">
+                    Dúvidas, Reclamações e Sugestões
+                  </h3>
+                  <p className="text-gray-600 mb-4">
+                    Sua opinião é muito importante para nós. Envie suas dúvidas, reclamações ou sugestões diretamente para nossa gerência.
+                  </p>
+                  <a
+                    href="mailto:olhares.gestao@gmail.com,olharesgerencia@gmail.com?subject=Dúvidas, Reclamações e Sugestões"
+                    className="inline-flex items-center text-primary font-semibold hover:text-teal transition-colors"
+                  >
+                    Entre em contato
+                    <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
