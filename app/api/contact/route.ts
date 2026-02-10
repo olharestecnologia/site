@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
+import nodemailer from 'nodemailer'
 
 interface ContactFormData {
   name: string
@@ -29,61 +30,50 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    const apiKey = process.env.MAILGUN_API_KEY
-    const domain = process.env.MAILGUN_DOMAIN
+    const smtpUser = process.env.SMTP_USER
+    const smtpPass = process.env.SMTP_PASS
     const toEmail = process.env.CONTACT_EMAIL_TO
 
-    if (!apiKey || !domain || !toEmail) {
-      console.error('Mailgun environment variables not configured')
+    if (!smtpUser || !smtpPass || !toEmail) {
+      console.error('SMTP environment variables not configured')
       return NextResponse.json(
         { error: 'Erro de configuração do servidor' },
         { status: 500 }
       )
     }
 
-    // Preparar dados do email
-    const formData = new FormData()
-    formData.append('from', `Formulário Site Olhares <mailgun@${domain}>`)
-    formData.append('to', toEmail)
-    formData.append('subject', `[Site] ${data.subject || 'Contato pelo site'}`)
-    formData.append('html', `
-      <h2>Nova mensagem do site</h2>
-      <p><strong>Nome:</strong> ${data.name}</p>
-      <p><strong>Email:</strong> ${data.email}</p>
-      <p><strong>Telefone:</strong> ${data.phone || 'Não informado'}</p>
-      <p><strong>Assunto:</strong> ${data.subject || 'Não informado'}</p>
-      <hr />
-      <h3>Mensagem:</h3>
-      <p>${data.message.replace(/\n/g, '<br />')}</p>
-    `)
-    formData.append('h:Reply-To', data.email)
+    const transporter = nodemailer.createTransport({
+      host: 'smtp.gmail.com',
+      port: 465,
+      secure: true,
+      auth: {
+        user: smtpUser,
+        pass: smtpPass,
+      },
+    })
 
-    // Enviar via API do Mailgun
-    const response = await fetch(
-      `https://api.mailgun.net/v3/${domain}/messages`,
-      {
-        method: 'POST',
-        headers: {
-          Authorization: `Basic ${Buffer.from(`api:${apiKey}`).toString('base64')}`,
-        },
-        body: formData,
-      }
-    )
-
-    if (!response.ok) {
-      const errorData = await response.text()
-      console.error('Mailgun error:', errorData)
-      return NextResponse.json(
-        { error: 'Erro ao enviar mensagem' },
-        { status: 500 }
-      )
-    }
+    await transporter.sendMail({
+      from: `Formulário Site Olhares <${smtpUser}>`,
+      to: toEmail,
+      replyTo: data.email,
+      subject: `[Site] ${data.subject || 'Contato pelo site'}`,
+      html: `
+        <h2>Nova mensagem do site</h2>
+        <p><strong>Nome:</strong> ${data.name}</p>
+        <p><strong>Email:</strong> ${data.email}</p>
+        <p><strong>Telefone:</strong> ${data.phone || 'Não informado'}</p>
+        <p><strong>Assunto:</strong> ${data.subject || 'Não informado'}</p>
+        <hr />
+        <h3>Mensagem:</h3>
+        <p>${data.message.replace(/\n/g, '<br />')}</p>
+      `,
+    })
 
     return NextResponse.json({ success: true, message: 'Mensagem enviada com sucesso!' })
   } catch (error) {
     console.error('Contact form error:', error)
     return NextResponse.json(
-      { error: 'Erro interno do servidor' },
+      { error: 'Erro ao enviar mensagem' },
       { status: 500 }
     )
   }
