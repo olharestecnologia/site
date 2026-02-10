@@ -1,7 +1,12 @@
+'use client'
+
+import { useState } from 'react'
 import { MapPin, Phone, Clock, Mail } from 'lucide-react'
 import siteData from '@/lib/content.json'
+import ContactFormModal from './ContactFormModal'
 
 export default function ContactSection() {
+  const [isModalOpen, setIsModalOpen] = useState(false)
   const address = siteData.site.contact.address
   const phones = siteData.site.contact.phones
 
@@ -120,15 +125,15 @@ export default function ContactSection() {
                   <p className="text-gray-600 mb-4">
                     Sua opinião é muito importante para nós. Envie suas dúvidas, reclamações ou sugestões diretamente para nossa gerência.
                   </p>
-                  <a
-                    href="mailto:olhares.gestao@gmail.com,olharesgerencia@gmail.com?subject=Dúvidas, Reclamações e Sugestões"
+                  <button
+                    onClick={() => setIsModalOpen(true)}
                     className="inline-flex items-center text-primary font-semibold hover:text-teal transition-colors"
                   >
-                    Entre em contato
+                    Enviar Mensagem
                     <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                     </svg>
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>
@@ -164,6 +169,12 @@ export default function ContactSection() {
           </div>
         </div>
       </div>
+
+      {/* Modal de Contato */}
+      <ContactFormModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </section>
   )
 }
