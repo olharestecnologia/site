@@ -260,6 +260,21 @@
           }
         },
         {
+          "name": "Dr. Lucas Pinto Cavalcante",
+          "crm": "CRM/MG 85.704",
+          "rqe": null,
+          "areas": [
+            "Consultas de Rotina",
+            "Catarata",
+            "Glaucoma",
+            "Urgências Oftalmológicas"
+          ],
+          "age_policy": {
+            "min_age": null,
+            "all_ages": true
+          }
+        },
+        {
           "name": "Dra. Bruna Cristina Leonel S. Barbosa",
           "crm": "CRM/MG 55.846",
           "rqe": "RQE 37.352",
