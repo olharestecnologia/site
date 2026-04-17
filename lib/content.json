@@ -175,6 +175,8 @@
             "Córnea",
             "Catarata",
             "Ceratocone",
+            "Lentes de Contato",
+            "Cirurgia Refrativa",
             "Urgências Oftalmológicas"
           ],
           "age_policy": {
@@ -194,22 +196,6 @@
           ],
           "age_policy": {
             "min_age": 8,
-            "all_ages": false
-          }
-        },
-        {
-          "name": "Dra. Júlia Calixto Guimarães Giffoni",
-          "crm": "CRM/MG 76.311",
-          "rqe": "RQE 53.974",
-          "areas": [
-            "Consultas de Rotina",
-            "Glaucoma",
-            "Catarata",
-            "Blefaroplastia",
-            "Urgências Oftalmológicas"
-          ],
-          "age_policy": {
-            "min_age": 7,
             "all_ages": false
           }
         },
