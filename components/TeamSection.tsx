@@ -16,6 +16,7 @@ export default function TeamSection() {
     'Dr. Raphael Coelho Santos': '/images/doctors/dr-raphael.png',
     'Dra. Silvia Nogueira Marx Gonzaga': '/images/doctors/dra-silvia.jpg',
     'Dra. Thaís Godinho Caldeira': '/images/doctors/dra-thais.png',
+    'Dr. Lucas Pinto Cavalcante': '/images/doctors/dr-lucas.jpg',
     'Dra. Bruna Cristina Leonel S. Barbosa': '/images/doctors/br-bruna.png',
     'Dr. Samuel B. Francisco de Souza': '/images/doctors/dr-samuel.jpg',
   }
@@ -79,8 +80,8 @@ export default function TeamSection() {
                 <span className="inline-block bg-primary text-white text-xs font-semibold px-3 py-1 rounded-full mb-2">
                   Especialista
                 </span>
-                <p className="text-sm text-gray-600 mb-1">{doctor.crm}</p>
-                <p className="text-sm text-gray-600 mb-4">{doctor.rqe}</p>
+                <p className={`text-sm text-gray-600 ${doctor.rqe ? 'mb-1' : 'mb-4'}`}>{doctor.crm}</p>
+                {doctor.rqe && <p className="text-sm text-gray-600 mb-4">{doctor.rqe}</p>}
                 
                 <div className="mb-4">
                   <h4 className="font-semibold text-gray-800 mb-2">
