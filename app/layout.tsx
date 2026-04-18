@@ -1,9 +1,6 @@
 import type { Metadata } from 'next'
 import Script from 'next/script'
 import './globals.css'
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
-import WhatsAppButton from '@/components/WhatsAppButton'
 import siteData from '@/lib/content.json'
 import { Analytics } from '@vercel/analytics/react'
 
@@ -34,10 +31,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KV36QHGZ"
             height="0" width="0" style={{display:'none',visibility:'hidden'}}></iframe>
         </noscript>
-        <Header />
-        <main>{children}</main>
-        <Footer />
-        <WhatsAppButton />
+        {children}
         <Analytics />
       </body>
     </html>
