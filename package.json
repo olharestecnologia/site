@@ -4,17 +4,31 @@
   "description": "Website for Clínica Olhares Oftalmologia",
   "scripts": {
     "dev": "npx next dev",
-    "build": "npx next build",
+    "build": "prisma generate && next build",
     "start": "npx next start",
-    "lint": "npx next lint"
+    "lint": "npx next lint",
+    "db:migrate": "prisma migrate dev",
+    "db:generate": "prisma generate",
+    "db:seed": "tsx prisma/seed.ts",
+    "db:studio": "prisma studio",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "hash-password": "tsx scripts/hash-password.ts"
+  },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
   },
   "dependencies": {
+    "@prisma/client": "^6.19.3",
     "@types/node": "^22.10.5",
     "@types/react": "^19.0.6",
     "@types/react-dom": "^19.0.3",
     "@vercel/analytics": "^1.5.0",
+    "@vercel/blob": "^2.3.3",
     "autoprefixer": "^10.4.20",
+    "bcryptjs": "^3.0.3",
     "framer-motion": "^11.15.0",
+    "iron-session": "^8.0.4",
     "lucide-react": "^0.469.0",
     "next": "^14.2.18",
     "nodemailer": "^8.0.1",
@@ -22,13 +36,18 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "tailwindcss": "^3.4.17",
-    "typescript": "^5.7.3"
+    "typescript": "^5.7.3",
+    "zod": "^4.3.6"
   },
   "devDependencies": {
+    "@playwright/test": "^1.59.1",
+    "@types/bcryptjs": "^2.4.6",
     "@types/nodemailer": "^7.0.9",
     "axios": "^1.7.9",
     "playwright": "^1.48.2",
-    "sharp": "^0.33.5"
+    "prisma": "^6.19.3",
+    "sharp": "^0.33.5",
+    "tsx": "^4.21.0"
   },
   "keywords": [
     "oftalmologia",
