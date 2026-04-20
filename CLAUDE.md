@@ -27,7 +27,9 @@ Package manager is **npm** (package-lock.json).
 
 ## Architecture
 
-**Stack:** Next.js 14 (App Router) · React 18 · TypeScript · Tailwind CSS 3 · Prisma 7 + Postgres (Vercel Postgres / Neon) · iron-session · Vercel Blob
+**Stack:** Next.js 14 (App Router) · React 18 · TypeScript · Tailwind CSS 3 · Prisma 6 + Postgres (Vercel Postgres / Neon) · iron-session · Vercel Blob
+
+> Nota: Prisma 6 em vez de 7 pra manter coerência com o padrão ffingers e evitar o adapter pattern novo do 7 (exige `prisma.config.ts` + `@prisma/adapter-pg`). Trade-off consciente.
 
 ### Data Model
 

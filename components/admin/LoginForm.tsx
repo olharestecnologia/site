@@ -24,7 +24,11 @@ export default function LoginForm() {
         body: JSON.stringify({ username, password }),
       })
       if (res.ok) {
-        router.replace(nextPath.startsWith('/admin') ? nextPath : '/admin/medicos')
+        const safeNext =
+          nextPath.startsWith('/admin/') && !nextPath.startsWith('//')
+            ? nextPath
+            : '/admin/medicos'
+        router.replace(safeNext)
         router.refresh()
         return
       }

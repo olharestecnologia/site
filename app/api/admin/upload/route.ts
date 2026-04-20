@@ -1,10 +1,16 @@
 import { NextResponse, type NextRequest } from 'next/server'
 import { put } from '@vercel/blob'
+import { getSession } from '@/lib/session'
 
 const MAX_BYTES = 5 * 1024 * 1024
 const ALLOWED = new Set(['image/jpeg', 'image/png', 'image/webp'])
 
 export async function POST(req: NextRequest) {
+  const session = await getSession()
+  if (!session.userId) {
+    return NextResponse.json({ error: 'unauthorized' }, { status: 401 })
+  }
+
   const form = await req.formData().catch(() => null)
   const file = form?.get('file')
 

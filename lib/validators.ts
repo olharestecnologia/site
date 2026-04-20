@@ -25,7 +25,8 @@ export const doctorSchema = z.object({
     .transform((v) => (v === '' ? null : v)),
   areas: z
     .array(z.string().trim().min(1).max(100))
-    .min(1, 'Informe ao menos uma especialidade'),
+    .min(1, 'Informe ao menos uma especialidade')
+    .max(20, 'Máximo de 20 especialidades'),
   minAge: z
     .number()
     .int()

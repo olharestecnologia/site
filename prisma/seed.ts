@@ -90,13 +90,18 @@ async function seedDoctors() {
   const raw = await readFile(contentPath, 'utf-8')
   const content = JSON.parse(raw)
   const rawDoctors: ContentDoctor[] = content?.pages?.[2]?.doctors ?? []
-  const active = rawDoctors.filter((d) => d.name in DOCTOR_PHOTOS)
 
-  console.log(`[seed] Migrando ${active.length} médicos do content.json`)
+  console.log(`[seed] Migrando ${rawDoctors.length} médicos do content.json`)
 
   let order = 0
-  for (const d of active) {
-    const photoUrl = await uploadPhoto(DOCTOR_PHOTOS[d.name])
+  for (const d of rawDoctors) {
+    const photoFile = DOCTOR_PHOTOS[d.name]
+    if (!photoFile) {
+      console.warn(
+        `[seed] Sem mapeamento de foto para "${d.name}" — cadastrando sem photoUrl`
+      )
+    }
+    const photoUrl = photoFile ? await uploadPhoto(photoFile) : null
     await prisma.doctor.create({
       data: {
         name: d.name,
