@@ -1,7 +1,6 @@
 import { readFile } from 'node:fs/promises'
 import { existsSync } from 'node:fs'
 import { join, extname } from 'node:path'
-import bcrypt from 'bcryptjs'
 import { PrismaClient } from '@prisma/client'
 import { put } from '@vercel/blob'
 
@@ -62,23 +61,6 @@ async function uploadPhoto(localFileName: string): Promise<string | null> {
   return blob.url
 }
 
-async function seedAdmin() {
-  const username = process.env.ADMIN_USERNAME?.trim()
-  const password = process.env.ADMIN_PASSWORD
-  if (!username || !password) {
-    console.log('[seed] ADMIN_USERNAME/ADMIN_PASSWORD ausentes — pulando seed de usuário')
-    return
-  }
-  const existing = await prisma.user.findUnique({ where: { username } })
-  if (existing) {
-    console.log(`[seed] Usuário "${username}" já existe — pulando`)
-    return
-  }
-  const passwordHash = await bcrypt.hash(password, 12)
-  await prisma.user.create({ data: { username, passwordHash } })
-  console.log(`[seed] Usuário "${username}" criado`)
-}
-
 async function seedDoctors() {
   const existingCount = await prisma.doctor.count()
   if (existingCount > 0) {
@@ -119,7 +101,6 @@ async function seedDoctors() {
 }
 
 async function main() {
-  await seedAdmin()
   await seedDoctors()
 }
 
