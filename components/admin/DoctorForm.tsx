@@ -122,7 +122,7 @@ export default function DoctorForm(props: Props) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-2xl space-y-5 bg-white border border-gray-200 rounded-lg p-6">
+    <form onSubmit={handleSubmit} className="max-w-2xl space-y-5 bg-white border border-gray-200 rounded-lg p-4 sm:p-6">
       <div>
         <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
           Nome completo
@@ -138,7 +138,7 @@ export default function DoctorForm(props: Props) {
         />
       </div>
 
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
           <label htmlFor="crm" className="block text-sm font-medium text-gray-700 mb-1">
             CRM
