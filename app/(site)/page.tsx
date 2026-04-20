@@ -6,6 +6,8 @@ import ServicesSection from '@/components/ServicesSection'
 import ConveniosSection from '@/components/ConveniosSection'
 import ContactSection from '@/components/ContactSection'
 
+export const revalidate = 60
+
 export default function Home() {
   return (
     <>
@@ -19,4 +21,3 @@ export default function Home() {
     </>
   )
 }
-
