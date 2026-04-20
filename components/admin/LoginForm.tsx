@@ -1,16 +1,12 @@
 'use client'
 
-import { useRouter } from 'next/navigation'
-import { use, useState } from 'react'
+import { useRouter, useSearchParams } from 'next/navigation'
+import { useState } from 'react'
 
-interface Props {
-  searchParamsPromise: Promise<{ next?: string }>
-}
-
-export default function LoginForm({ searchParamsPromise }: Props) {
+export default function LoginForm() {
   const router = useRouter()
-  const searchParams = use(searchParamsPromise)
-  const nextPath = searchParams?.next ?? '/admin/medicos'
+  const searchParams = useSearchParams()
+  const nextPath = searchParams.get('next') ?? '/admin/medicos'
 
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
