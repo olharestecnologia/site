@@ -9,26 +9,48 @@ Medical ophthalmology clinic website (Olhares Oftalmologia, Divinópolis-MG, Bra
 ## Commands
 
 ```bash
-npx next dev       # Dev server at localhost:3000
-npx next build     # Production build
-npx next start     # Start production server
-npx next lint      # ESLint
+npm run dev              # Dev server at localhost:3000
+npm run build            # prisma generate && next build
+npm run start            # Start production server
+npm run lint             # ESLint
+npm run db:migrate       # prisma migrate dev
+npm run db:generate      # prisma generate
+npm run db:seed          # Seeds User + Doctors do content.json (idempotente)
+npm run db:studio        # Prisma Studio
+npm run test:e2e         # Playwright E2E
+npm run hash-password    # Gera hash bcrypt (arg = senha em claro)
+
+docker compose up -d     # Postgres local na porta 5432 (dev/test)
 ```
 
 Package manager is **npm** (package-lock.json).
 
 ## Architecture
 
-**Stack:** Next.js 14 (App Router) · React 18 · TypeScript · Tailwind CSS 3
+**Stack:** Next.js 14 (App Router) · React 18 · TypeScript · Tailwind CSS 3 · Prisma 6 + Postgres (Vercel Postgres / Neon) · iron-session · Vercel Blob
 
-### Content-Driven Data Model
+> Nota: Prisma 6 em vez de 7 pra manter coerência com o padrão ffingers e evitar o adapter pattern novo do 7 (exige `prisma.config.ts` + `@prisma/adapter-pg`). Trade-off consciente.
 
-All site content lives in **`lib/content.json`** — doctor profiles, services, contact info, SEO metadata, section copy. Components import this file directly and render from it. To update text, doctors, services, or insurance plans, edit this JSON file rather than component code.
+### Data Model
+
+Médicos vivem no Postgres (tabela `Doctor`). User admin na tabela `User` (um único registro gerenciado via seed). Demais conteúdos (hero, about, services, convenios, SEO, contact copy) seguem em **`lib/content.json`** — só a seção de médicos saiu do JSON. Componentes do site importam `content.json` diretamente.
+
+### Admin Panel
+
+`/admin` contém login e CRUD de médicos. Proteção via `middleware.ts` (iron-session cookie). Upload de fotos em Vercel Blob. Endpoint público `GET /api/doctors` retorna a lista ordenada por `displayOrder`. Mutations disparam `revalidateTag('doctors')` pra atualizar home imediatamente.
+
+Route groups:
+- `app/(site)/*` — site público (Header/Footer/WhatsApp)
+- `app/admin/*` — admin (layout próprio, sem chrome do site)
+- `app/api/doctors` — endpoint público
+- `app/api/admin/*` — endpoints protegidos (login, logout, doctors CRUD, upload)
 
 ### Page & Component Structure
 
-- `app/layout.tsx` — Root layout with metadata, Google Tag Manager (GTM-KV36QHGZ), Vercel Analytics
-- `app/page.tsx` — Home page that composes all section components in order
+- `app/layout.tsx` — Root layout (html/body, GTM, Analytics)
+- `app/(site)/layout.tsx` — Site chrome (Header/Footer/WhatsAppButton)
+- `app/(site)/page.tsx` — Home page that composes all section components in order
+- `app/admin/layout.tsx` — Admin shell (sem chrome do site)
 - `components/` — One file per section, all PascalCase `.tsx`:
   - `Header` / `Footer` — Navigation and site chrome
   - `Hero` — Image carousel (`'use client'`, manages slide state + timer)
@@ -49,4 +71,4 @@ Sections use these IDs for in-page navigation: `#sobre`, `#corpo-clinico`, `#ser
 - **Styling:** Tailwind utility classes only (no CSS modules, no styled-components). Custom colors defined in `tailwind.config.ts`: `primary` (#0086bf), `teal` (#088089), `terracota` (#C47F5B)
 - **Responsive:** Mobile-first — base styles for mobile, then `md:` and `lg:` breakpoints
 - **External links:** WhatsApp uses `wa.me/55{phone}` format with pre-filled message text; all `target="_blank"` links include `rel="noopener noreferrer"`
-- **No API routes or database** — purely static site driven by JSON content
+- **Envs obrigatórias** (ver `.env.example`): `DATABASE_URL`, `BLOB_READ_WRITE_TOKEN`, `SESSION_PASSWORD` (mín. 32 chars), `ADMIN_USERNAME`, `ADMIN_PASSWORD` (seed inicial)

@@ -1,35 +1,27 @@
 import Image from 'next/image'
-import siteData from '@/lib/content.json'
+import { unstable_cache } from 'next/cache'
+import { prisma } from '@/lib/prisma'
 
-export default function TeamSection() {
-  const doctors = siteData.pages[2]?.doctors
+const getDoctors = unstable_cache(
+  async () =>
+    prisma.doctor.findMany({
+      orderBy: [{ displayOrder: 'asc' }, { name: 'asc' }],
+    }),
+  ['team-doctors'],
+  { revalidate: 60, tags: ['doctors'] }
+)
 
-  // Map doctors with available photos
-  const doctorPhotos: Record<string, string> = {
-    'Dr. Antonio Augusto de Morais Pires': '/images/doctors/dr-antonio.jpg',
-    'Dra. Andreia Miriam Lopes Sansoni': '/images/doctors/dra-andreia.jpg',
-    'Dr. Alvaro Ribeiro Vaz de Faria': '/images/doctors/dr-alvaro.jpg',
-    'Dr. Caio Godinho Caldeira': '/images/doctors/dr-caio.jpg',
-    'Dr. Gustavo Gonçalves Rodrigues': '/images/doctors/dr-gustavo.jpg',
-    'Dra. Rafaela de Morais Miranda': '/images/doctors/dra-rafaela.jpg',
-    'Dr. Raphael Coelho Santos': '/images/doctors/dr-raphael.png',
-    'Dra. Silvia Nogueira Marx Gonzaga': '/images/doctors/dra-silvia.jpg',
-    'Dra. Thaís Godinho Caldeira': '/images/doctors/dra-thais.png',
-    'Dr. Lucas Pinto Cavalcante': '/images/doctors/dr-lucas.jpg',
-    'Dra. Bruna Cristina Leonel S. Barbosa': '/images/doctors/br-bruna.png',
-    'Dr. Samuel B. Francisco de Souza': '/images/doctors/dr-samuel.jpg',
+function getInitials(name: string) {
+  const parts = name.split(' ')
+  if (parts.length >= 2) {
+    return `${parts[0][0]}${parts[1][0]}`
   }
+  return name[0]
+}
 
-  // Function to get initials from doctor name
-  const getInitials = (name: string) => {
-    const parts = name.split(' ')
-    if (parts.length >= 2) {
-      return `${parts[0][0]}${parts[1][0]}`
-    }
-    return name[0]
-  }
-
-  if (!doctors) return null
+export default async function TeamSection() {
+  const doctors = await getDoctors()
+  if (doctors.length === 0) return null
 
   return (
     <section id="corpo-clinico" className="py-20 bg-gray-50">
@@ -44,15 +36,15 @@ export default function TeamSection() {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {doctors.map((doctor: any, index: number) => (
+          {doctors.map((doctor) => (
             <div
-              key={index}
+              key={doctor.id}
               className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
             >
-              {doctorPhotos[doctor.name] ? (
+              {doctor.photoUrl ? (
                 <div className="relative h-96 bg-gray-200">
                   <Image
-                    src={doctorPhotos[doctor.name]}
+                    src={doctor.photoUrl}
                     alt={doctor.name}
                     fill
                     className="object-cover object-top"
@@ -79,15 +71,19 @@ export default function TeamSection() {
                 <span className="inline-block bg-primary text-white text-xs font-semibold px-3 py-1 rounded-full mb-2">
                   Especialista
                 </span>
-                <p className={`text-sm text-gray-600 ${doctor.rqe ? 'mb-1' : 'mb-4'}`}>{doctor.crm}</p>
-                {doctor.rqe && <p className="text-sm text-gray-600 mb-4">{doctor.rqe}</p>}
-                
+                <p className={`text-sm text-gray-600 ${doctor.rqe ? 'mb-1' : 'mb-4'}`}>
+                  {doctor.crm}
+                </p>
+                {doctor.rqe && (
+                  <p className="text-sm text-gray-600 mb-4">{doctor.rqe}</p>
+                )}
+
                 <div className="mb-4">
                   <h4 className="font-semibold text-gray-800 mb-2">
                     Especialidades:
                   </h4>
                   <div className="flex flex-wrap gap-2">
-                    {doctor.areas.map((area: string, idx: number) => (
+                    {doctor.areas.map((area, idx) => (
                       <span
                         key={idx}
                         className="text-xs bg-primary/10 text-primary px-2 py-1 rounded"
@@ -105,4 +101,3 @@ export default function TeamSection() {
     </section>
   )
 }
-

@@ -2,7 +2,12 @@
 const nextConfig = {
   images: {
     domains: [],
-    remotePatterns: [],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '*.public.blob.vercel-storage.com',
+      },
+    ],
   },
 }
 

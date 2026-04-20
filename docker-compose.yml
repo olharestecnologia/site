@@ -1,0 +1,21 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: olhares-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: olhares
+      POSTGRES_PASSWORD: olhares
+      POSTGRES_DB: olhares
+    ports:
+      - "5432:5432"
+    volumes:
+      - olhares-pg-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U olhares -d olhares"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  olhares-pg-data:
