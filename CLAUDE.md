@@ -15,7 +15,7 @@ npm run start            # Start production server
 npm run lint             # ESLint
 npm run db:migrate       # prisma migrate dev
 npm run db:generate      # prisma generate
-npm run db:seed          # Seeds User + Doctors do content.json (idempotente)
+npm run db:seed          # Seeds Doctors do content.json (idempotente)
 npm run db:studio        # Prisma Studio
 npm run test:e2e         # Playwright E2E
 npm run hash-password    # Gera hash bcrypt (arg = senha em claro)
@@ -33,7 +33,7 @@ Package manager is **npm** (package-lock.json).
 
 ### Data Model
 
-Médicos vivem no Postgres (tabela `Doctor`). User admin na tabela `User` (um único registro gerenciado via seed). Demais conteúdos (hero, about, services, convenios, SEO, contact copy) seguem em **`lib/content.json`** — só a seção de médicos saiu do JSON. Componentes do site importam `content.json` diretamente.
+Médicos vivem no Postgres (tabela `Doctor`). User admin na tabela `User` (bootstrap manual, fora do seed — criar com `scripts/hash-password.ts` + INSERT direto ou Prisma Studio). Demais conteúdos (hero, about, services, convenios, SEO, contact copy) seguem em **`lib/content.json`** — só a seção de médicos saiu do JSON. Componentes do site importam `content.json` diretamente.
 
 ### Admin Panel
 
@@ -71,4 +71,4 @@ Sections use these IDs for in-page navigation: `#sobre`, `#corpo-clinico`, `#ser
 - **Styling:** Tailwind utility classes only (no CSS modules, no styled-components). Custom colors defined in `tailwind.config.ts`: `primary` (#0086bf), `teal` (#088089), `terracota` (#C47F5B)
 - **Responsive:** Mobile-first — base styles for mobile, then `md:` and `lg:` breakpoints
 - **External links:** WhatsApp uses `wa.me/55{phone}` format with pre-filled message text; all `target="_blank"` links include `rel="noopener noreferrer"`
-- **Envs obrigatórias** (ver `.env.example`): `DATABASE_URL`, `BLOB_READ_WRITE_TOKEN`, `SESSION_PASSWORD` (mín. 32 chars), `ADMIN_USERNAME`, `ADMIN_PASSWORD` (seed inicial)
+- **Envs obrigatórias** (ver `.env.example`): `DATABASE_URL`, `BLOB_READ_WRITE_TOKEN`, `SESSION_PASSWORD` (mín. 32 chars). Usuário admin vive no banco (criado via `scripts/hash-password.ts` + insert direto ou Prisma Studio — bootstrap fora do seed).
